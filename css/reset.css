@@ -22,7 +22,8 @@
     display: block;
     color: white;
     text-decoration: none;
-    padding: 8px 16px;
+    padding: 10px 16px;
+
   }
   
   .nav-bar li a:hover {
