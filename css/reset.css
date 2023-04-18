@@ -2,4 +2,29 @@
     border: 0px;
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
+
+:root {
+    --b: 3ffff;
+
+}
+ 
+.nav-bar {
+    list-style-type: none;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .nav-bar li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+  }
+  
+  .nav-bar li a:hover {
+    background-color: #111;
+  }
