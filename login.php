@@ -1,5 +1,5 @@
 <?php
-    include_once 'header.php'
+    include_once 'header.php';
 ?>
 
     <section class="signup-form">
@@ -14,5 +14,5 @@
     </section>
 
 <?php
-    include_once 'footer.php'
+    include_once 'footer.php';
 ?>
