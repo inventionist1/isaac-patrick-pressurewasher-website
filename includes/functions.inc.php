@@ -9,7 +9,7 @@ function emptyInputSignup($name,$email,$username,$pwd,$pwdRepeat) {
 }
 
 function invalidUid($username) {
-    if(!preg_match("/^[a-zA-Z0-9]*$/"), $username){
+    if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
         return(true);
         exit();
     }
@@ -25,7 +25,7 @@ function invalidEmail($email) {
 }
 
 function pwdMatch($pwd, $pwdRepeat) {
-    if($pwd !== $pwdRepeat){
+    if($pwd !== $pwdRepeat) {
         return true;
         exit();
     }
