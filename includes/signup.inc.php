@@ -12,8 +12,8 @@ $username = $_POST["uid"];
 $pwd = $_POST["pwd"];
 $pwdRepeat = $_POST["pwdrepeat"];
 
-require_once 'dbh.inc.php'
-require_once 'functions.inc.php'
+require_once 'dbh.inc.php';
+require_once 'functions.inc.php';
 
 //some error handelers
 if (emptyInputSignup($name,$email,$username,$pwd,$pwdRepeat) !== false) {
@@ -41,4 +41,4 @@ if (uidExists($conn, $username, $email) !== false) {
     exit();
 }
 
-createUser($conn, $name, $email, $username, $pwd)
+createUser($conn, $name, $email, $username, $pwd);
