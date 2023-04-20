@@ -1,44 +1,24 @@
 <?php
 
-if (!isset($_POST["submit"])) {
-    //if the page was accessed from any place other than the signup page leave
-    header("location: ../signup.php");
-    exit();
+if(isset($_POST["submit"]))
+{
+
+    //getting data
+    $uid = $_POST["uid"];
+    $pwd = $_POST["pwd"];
+    $pwdReapeat = $_POST["pwdrepeat"];
+    $email = $_POST["email";]
+
+    //init signupcontra class
+    include "../classes/dbh.classes.php";
+    include "../classes/signup.classes.php";
+    include "../classes/signup-contra.classes.php";
+    $signup = new SignupContra($uid, $pwd, $pwdRepeat, $email);
+
+    //running error handlers and user signup
+    $signup->signupUser();
+
+    //going back to sign up page
+    //TODO: make it so it automaticly logs in the user as well
+    header("location: ../signup.php?error=none");
 }
-
-$name = $_POST["name"];
-$email = $_POST["email"];
-$username = $_POST["uid"];
-$pwd = $_POST["pwd"];
-$pwdRepeat = $_POST["pwdrepeat"];
-
-require_once 'dbh.inc.php';
-require_once 'functions.inc.php';
-
-//some error handelers
-if (emptyInputSignup($name,$email,$username,$pwd,$pwdRepeat) !== false) {
-    header("location: ../signup.php?error=emptyinput");
-    exit();
-}
-
-if (invalidUid($username) !== false) {
-    header("location: ../signup.php?error=invaliduid");
-    exit();
-}
-
-if (invalidEmail($email) !== false) {
-    header("location: ../signup.php?error=invalidemail");
-    exit();
-}
-
-if (pwdMatch($pwd, $pwdRepeat) !== false) {
-    header("location: ../signup.php?error=pwddontmatch");
-    exit();
-}
-
-if (uidExists($conn, $username, $email) !== false) {
-    header("location: ../signup.php?error=usernameoremailtaken");
-    exit();
-}
-
-createUser($conn, $name, $email, $username, $pwd);
