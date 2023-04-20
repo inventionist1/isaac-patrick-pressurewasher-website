@@ -15,12 +15,17 @@
                 <ul class="nav-bar">
                     <li><a href="index.php">Home</a></li>
                     <?php
-                        if(isset($_SESSION["useruid"])) {
-                            echo "<li><a href="profile.php">Profile</a></li>";
-                            echo "<li><a href="logout.php">Log out</a></li>";
+                        if(isset($_SESSION["userid"])) {
+                    ?>
+                            <li><a href="#"><?php echo $_SESSION["useruid"]; ?></a></li>
+                            <li><a href="profile.php">Profile</a></li>
+                            <li><a href="includes/logout.inc.php">Log out</a></li>
+                    <?php
                         } else {
-                            echo "<li><a href="login.php">Login</a></li>";
-                            echo "<li><a href="signup.php">Signup</a></li>";
+                    ?>
+                            <li><a href="login.php">Login</a></li>
+                            <li><a href="signup.php">Signup</a></li>
+                    <?php
                         }
                     ?>
                 </ul>

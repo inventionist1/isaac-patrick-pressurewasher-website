@@ -1,6 +1,6 @@
 <?php
 
-class SignupContra {
+class SignupContr extends Signup{
 
     private $uid;
     private $pwd;
@@ -36,7 +36,7 @@ class SignupContra {
             exit();
         }
 
-        $this->setUser($this->$uid, $this->$email);
+        $this->setUser($this->uid, $this->pwd, $this->email);
     }
 
     private function emptyInput() {
@@ -72,7 +72,7 @@ class SignupContra {
     }
 
     private function uidTakenCheck() {
-        if($this->checkUser($this->$uid, $this->$email)) {
+        if(!$this->checkUser($this->uid, $this->email)) {
             return false;
         } else {
             return true;
